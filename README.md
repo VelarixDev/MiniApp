@@ -28,4 +28,8 @@ A complete, full-stack Telegram Mini App solution for selling digital products d
 4. Run the bot. The shop.db file will be generated automatically on the first run.
 
 ---
+### Here is an example of how the bot works:
+<img width="1167" height="984" alt="Screenshot 2026-04-21 224922" src="https://github.com/user-attachments/assets/81407a00-6d53-48c8-903a-c9a13b5baf4d" />
+
+
 *Developed by [VelarixDev](https://github.com/VelarixDev)*
