@@ -59,11 +59,11 @@ async def start_command(message: types.Message):
     """Handler for /start command."""
     kb = ReplyKeyboardMarkup(
         keyboard=[
-            [KeyboardButton(text="🛍 Открыть магазин", web_app=WebAppInfo(url="https://velarixdev.github.io/MiniApp/web/index.html"))]
+            [KeyboardButton(text="🛍 Open Store", web_app=WebAppInfo(url="https://velarixdev.github.io/MiniApp/web/index.html"))]
         ],
         resize_keyboard=True
     )
-    await message.answer("Привет! Нажми на кнопку ниже, чтобы перейти в наш магазин.", reply_markup=kb)
+    await message.answer("Hi! Click the button below to visit our store.", reply_markup=kb)
 
 async def web_app_data_handler(message: types.Message):
     """Handler for receiving data from the Web App."""
@@ -131,10 +131,10 @@ async def web_app_data_handler(message: types.Message):
 
         receipt_body = "\n".join(receipt_lines)
         formatted_message = (
-            f"✅ Ваш заказ успешно оформлен!\n"
-            f"📦 Корзина:\n"
+            f"✅ Your order has been placed successfully!\n"
+            f"📦 Cart:\n"
             f"{receipt_body}\n"
-            f"💳 Итого к оплате: ${total_price:.2f}"
+            f"💳 Total to pay: ${total_price:.2f}"
         )
 
         # Save the processed order to database
@@ -148,10 +148,10 @@ async def web_app_data_handler(message: types.Message):
 
     except json.JSONDecodeError:
         logger.error(f"Failed to decode JSON from WebApp data: {raw_data}")
-        await message.answer("❌ Ошибка: Некорректные данные от магазина.")
+        await message.answer("❌ Error: Invalid data from the store.")
     except Exception as e:
         logger.error(f"Error processing web_app_data: {e}")
-        await message.answer("❌ Произошла ошибка при оформлении заказа. Попробуйте позже.")
+        await message.answer("❌ An error occurred while processing your order. Please try again later.")
 
 async def main():
     # Initialize DB
